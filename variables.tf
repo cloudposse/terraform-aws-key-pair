@@ -10,14 +10,6 @@ variable "name" {
   default = ""
 }
 
-variable "ssh_public_key" {
-  default = ""
-}
-
-variable "ssh_key_path" {
-  default = ""
-}
-
-variable "ssh_public_key_name" {
+variable "ssh_public_key_path" {
   default = ""
 }
