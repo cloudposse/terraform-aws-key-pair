@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 variable "namespace" {}
 
 variable "stage" {}
@@ -21,36 +20,10 @@ variable "tags" {
 
 variable "ssh_public_key_path" {
   description = "Path to Read/Write SSH Public Key File (directory)"
-=======
-variable "namespace" {
-  default = ""
 }
 
-variable "stage" {
-  default = ""
-}
-
-variable "name" {
-  default = ""
-}
-
-variable "delimiter" {
-  default = "-"
-}
-
-variable "attributes" {
-  type    = "list"
-  default = []
-}
-
-variable "tags" {
-  type    = "map"
-  default = {}
-}
-
-variable "ssh_public_key_path" {
-  default = ""
->>>>>>> added code
+variable "generate_ssh_key" {
+  default = "true"
 }
 
 variable "ssh_key_algorithm" {
