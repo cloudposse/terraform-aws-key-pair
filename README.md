@@ -1,6 +1,6 @@
 # tf_key_pair
 
-Terraform module for import ssh-key in to aws.
+Terraform module for importing SSH public key file into AWS.
 
 # Usage
 
