@@ -34,15 +34,25 @@ variable "name" {
   default = ""
 }
 
-variable "ssh_public_key" {
-  default = ""
+variable "delimiter" {
+  default = "-"
 }
 
-variable "ssh_key_path" {
-  default = ""
+variable "attributes" {
+  type    = "list"
+  default = []
 }
 
-variable "ssh_public_key_name" {
+variable "tags" {
+  type    = "map"
+  default = {}
+}
+
+variable "ssh_public_key_path" {
   default = ""
 >>>>>>> added code
+}
+
+variable "ssh_key_algorithm" {
+  default = "RSA"
 }
