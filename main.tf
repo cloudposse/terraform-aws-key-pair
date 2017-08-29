@@ -1,5 +1,5 @@
 data "template_file" "default" {
-  template = "${file("${var.ssh_public_key_path}")}"
+  template = "${file("${var.ssh_public_key_path}/${module.label.id}")}"
 }
 
 module "label" {
