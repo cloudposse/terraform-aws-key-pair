@@ -1,29 +1,15 @@
-variable "namespace" {
-  default = ""
-}
+variable "namespace" {}
 
-variable "stage" {
-  default = ""
-}
+variable "stage" {}
 
-variable "name" {
-  default = ""
-}
+variable "name" {}
 
-variable "delimiter" {
-  default = "-"
-}
+variable "delimiter" {}
 
-variable "attributes" {
-  type    = "list"
-  default = []
-}
+variable "attributes" {}
 
-variable "tags" {
-  type    = "map"
-  default = {}
-}
+variable "tags" {}
 
 variable "ssh_public_key_path" {
-  default = ""
+  description = "Path to Read/Write SSH Public Key File (directory)"
 }
