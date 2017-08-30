@@ -2,7 +2,7 @@
 
 Terraform module for importing SSH public key file into AWS.
 
-# Usage
+## Usage
 
 ```terraform
 module "default" {
@@ -11,6 +11,7 @@ module "default" {
   stage               = "${var.stage}"
   name                = "${var.name}"
   ssh_public_key_path = "${var.ssh_public_key_path}"
+  generate_ssh_key    = "${var.generate_ssh_key}"
 }
 ```
 
@@ -18,7 +19,8 @@ module "default" {
 
 |  Name                        |  Default       |  Description                                            | Required |
 |:-----------------------------|:--------------:|:--------------------------------------------------------|:--------:|
-| namespace                    | ``             | Namespace (e.g. `cp` or `cloudposse`)                   | Yes      |
-| stage                        | ``             | Stage (e.g. `prod`, `dev`, `staging`)                   | Yes      |
-| name                         | ``             | Name  (e.g. `bastion` or `db`)                          | Yes      |
-| ssh_public_key_path          | ``             | Path to Read/Write SSH Public Key File (directory)      | Yes      |
+| `namespace`                    | ``             | Namespace (e.g. `cp` or `cloudposse`)                   | Yes      |
+| `stage`                        | ``             | Stage (e.g. `prod`, `dev`, `staging`)                   | Yes      |
+| `name`                         | ``             | Name  (e.g. `bastion` or `db`)                          | Yes      |
+| `ssh_public_key_path`          | ``             | Path to Read/Write SSH Public Key File (directory)      | Yes      |
+| `generate_ssh_key`        | `false`             |  Set to `true` if need generate ssh-keys     | No      |
