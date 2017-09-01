@@ -6,7 +6,7 @@ Terraform module for importing SSH public key file into AWS.
 
 ```terraform
 module "default" {
-  source              = "git::https://github.com/cloudposse/tf_key_pair.git?ref=tags/0.1.0"
+  source              = "git::https://github.com/cloudposse/tf_key_pair.git?ref=master"
   namespace           = "${var.namespace}"
   stage               = "${var.stage}"
   name                = "${var.name}"
