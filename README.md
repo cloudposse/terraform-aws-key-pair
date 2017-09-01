@@ -23,4 +23,4 @@ module "default" {
 | `stage`                      | ``             | Stage (e.g. `prod`, `dev`, `staging`)                   | Yes      |
 | `name`                       | ``             | Name  (e.g. `bastion` or `db`)                          | Yes      |
 | `ssh_public_key_path`        | ``             | Path to Read/Write SSH Public Key File (directory)      | Yes      |
-| `generate_ssh_key`           | `false`        | If set to `true`, new ssh key pair will be created        | No       |
+| `generate_ssh_key`           | `false`        | If set to `true`, new ssh key pair will be created      | No       |
