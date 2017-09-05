@@ -23,7 +23,7 @@ variable "ssh_public_key_path" {
 }
 
 variable "generate_ssh_key" {
-  default = "true"
+  default = "false"
 }
 
 variable "ssh_key_algorithm" {
