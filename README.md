@@ -28,7 +28,6 @@ module "default" {
 
 ## Outputs
 
-| Name                  | Decription                |
-|:---------------------:|:-------------------------:|
-| `key_name`            | Name of existing SSH key  |
-| `key_name_generated`  | Name of generated SSH key |
+| Name                  | Description               |
+|:----------------------|:--------------------------|
+| `key_name`            | Name of SSH key           |

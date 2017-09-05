@@ -1,7 +1,3 @@
 output "key_name" {
-  value = "${aws_key_pair.non_empty.key_name}"
-}
-
-output "key_name_generated" {
-  value = "${aws_key_pair.empty.key_name}"
+  value = "${element(compact(concat(aws_key_pair.imported.*.key_name, aws_key_pair.generated.*.key_name)), 0)}"
 }
