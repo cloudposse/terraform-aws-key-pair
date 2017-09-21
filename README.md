@@ -1,12 +1,12 @@
-# tf_key_pair
+# terraform-aws-key-pair
 
-Terraform module for importing SSH public key file into AWS.
+Terraform module for generating (or importing) a SSH public key file into AWS.
 
 ## Usage
 
-```terraform
+```hcl
 module "default" {
-  source              = "git::https://github.com/cloudposse/tf_key_pair.git?ref=master"
+  source              = "git::https://github.com/cloudposse/terraform-aws-key-pair.git?ref=master"
   namespace           = "${var.namespace}"
   stage               = "${var.stage}"
   name                = "${var.name}"
