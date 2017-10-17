@@ -34,6 +34,6 @@ resource "null_resource" "save_ssh_keys" {
   }
 
   provisioner "local-exec" {
-    command = "echo \"${tls_private_key.default.private_key_pem}\" > ${var.ssh_public_key_path}/${module.label.id} && chmod 600 ${var.ssh_public_key_path}/${module.label.id}"
+    command = "echo \"${tls_private_key.default.private_key_pem}\" > ${var.ssh_public_key_path}/${module.label.id}.pem && chmod 600 ${var.ssh_public_key_path}/${module.label.id}.pem"
   }
 }
