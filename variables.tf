@@ -29,3 +29,13 @@ variable "generate_ssh_key" {
 variable "ssh_key_algorithm" {
   default = "RSA"
 }
+
+variable "private_key_extension" {
+  type    = "string"
+  default = ""
+}
+
+variable "public_key_extension" {
+  type    = "string"
+  default = ".pub"
+}
