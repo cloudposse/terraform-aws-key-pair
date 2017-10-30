@@ -21,19 +21,30 @@ resource "tls_private_key" "default" {
 
 resource "aws_key_pair" "generated" {
   count      = "${var.generate_ssh_key  == true ? 1 : 0}"
+  depends_on = ["tls_private_key.default"]
   key_name   = "${module.label.id}"
   public_key = "${tls_private_key.default.public_key_openssh}"
 }
 
-resource "null_resource" "save_ssh_keys" {
+resource "local_file" "public_key_openssh" {
   count      = "${var.generate_ssh_key  == true ? 1 : 0}"
   depends_on = ["tls_private_key.default"]
+  content    = "${tls_private_key.default.public_key_openssh}"
+  filename   = "${var.ssh_public_key_path}/${module.label.id}.pub"
+}
+
+resource "local_file" "private_key_pem" {
+  count      = "${var.generate_ssh_key  == true ? 1 : 0}"
+  depends_on = ["tls_private_key.default"]
+  content    = "${tls_private_key.default.private_key_pem}"
+  filename   = "${var.ssh_public_key_path}/${module.label.id}"
+}
+
+resource "null_resource" "chmod" {
+  count      = "${var.generate_ssh_key  == true ? 1 : 0}"
+  depends_on = ["local_file.private_key_pem"]
 
   provisioner "local-exec" {
-    command = "echo \"${tls_private_key.default.public_key_openssh}\" > ${var.ssh_public_key_path}/${module.label.id}.pub"
-  }
-
-  provisioner "local-exec" {
-    command = "echo \"${tls_private_key.default.private_key_pem}\" > ${var.ssh_public_key_path}/${module.label.id} && chmod 600 ${var.ssh_public_key_path}/${module.label.id}"
+    command = "chmod 600 ${var.ssh_public_key_path}/${module.label.id}"
   }
 }
