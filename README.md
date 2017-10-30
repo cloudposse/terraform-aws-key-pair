@@ -13,6 +13,7 @@ module "default" {
   ssh_public_key_path   = "/secrets"
   generate_ssh_key      = "true"
   private_key_extension = ".pem"
+  public_key_extension  = ".pub"
 }
 ```
 
@@ -26,6 +27,7 @@ module "default" {
 | `ssh_public_key_path`        | ``             | Path to Read/Write SSH Public Key File (directory)      | Yes      |
 | `generate_ssh_key`           | `false`        | If set to `true`, new ssh key pair will be created      | No       |
 | `private_key_extension`      | ``             | Private key file extension, _e.g._ `.pem`               | No       |
+| `public_key_extension`       | `.pub`         | Public key file extension, _e.g._ `.pub`                | Yes      |
 
 
 ## Outputs
