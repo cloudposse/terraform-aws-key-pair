@@ -9,13 +9,14 @@ module "label" {
 }
 
 locals {
-  key_pair_filename = "${var.ssh_public_key_path}/${module.label.id}"
+  public_key_filename  = "${var.ssh_public_key_path}/${module.label.id}${var.public_key_extension}"
+  private_key_filename = "${var.ssh_public_key_path}/${module.label.id}${var.private_key_extension}"
 }
 
 resource "aws_key_pair" "imported" {
   count      = "${var.generate_ssh_key == "false" ? 1 : 0}"
   key_name   = "${module.label.id}"
-  public_key = "${file("${local.key_pair_filename}${var.public_key_extension}")}"
+  public_key = "${file("${local.public_key_filename}")}"
 }
 
 resource "tls_private_key" "default" {
@@ -34,14 +35,14 @@ resource "local_file" "public_key_openssh" {
   count      = "${var.generate_ssh_key == "true" ? 1 : 0}"
   depends_on = ["tls_private_key.default"]
   content    = "${tls_private_key.default.public_key_openssh}"
-  filename   = "${local.key_pair_filename}${var.public_key_extension}"
+  filename   = "${local.public_key_filename}"
 }
 
 resource "local_file" "private_key_pem" {
   count      = "${var.generate_ssh_key == "true" ? 1 : 0}"
   depends_on = ["tls_private_key.default"]
   content    = "${tls_private_key.default.private_key_pem}"
-  filename   = "${local.key_pair_filename}${var.private_key_extension}"
+  filename   = "${local.private_key_filename}"
 }
 
 resource "null_resource" "chmod" {
@@ -49,6 +50,6 @@ resource "null_resource" "chmod" {
   depends_on = ["local_file.private_key_pem"]
 
   provisioner "local-exec" {
-    command = "chmod 600 ${local.key_pair_filename}${var.private_key_extension}"
+    command = "chmod 600 ${local.private_key_filename}"
   }
 }
