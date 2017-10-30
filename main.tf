@@ -8,43 +8,47 @@ module "label" {
   tags       = "${var.tags}"
 }
 
+locals {
+  key_pair_filename = "${var.ssh_public_key_path}/${module.label.id}"
+}
+
 resource "aws_key_pair" "imported" {
-  count      = "${var.generate_ssh_key  == false ? 1 : 0}"
+  count      = "${var.generate_ssh_key == "false" ? 1 : 0}"
   key_name   = "${module.label.id}"
-  public_key = "${file("${var.ssh_public_key_path}/${module.label.id}${var.public_key_extension}")}"
+  public_key = "${file("${local.key_pair_filename}${var.public_key_extension}")}"
 }
 
 resource "tls_private_key" "default" {
-  count     = "${var.generate_ssh_key  == true ? 1 : 0}"
+  count     = "${var.generate_ssh_key == "true" ? 1 : 0}"
   algorithm = "${var.ssh_key_algorithm}"
 }
 
 resource "aws_key_pair" "generated" {
-  count      = "${var.generate_ssh_key  == true ? 1 : 0}"
+  count      = "${var.generate_ssh_key == "true" ? 1 : 0}"
   depends_on = ["tls_private_key.default"]
   key_name   = "${module.label.id}"
   public_key = "${tls_private_key.default.public_key_openssh}"
 }
 
 resource "local_file" "public_key_openssh" {
-  count      = "${var.generate_ssh_key  == true ? 1 : 0}"
+  count      = "${var.generate_ssh_key == "true" ? 1 : 0}"
   depends_on = ["tls_private_key.default"]
   content    = "${tls_private_key.default.public_key_openssh}"
-  filename   = "${var.ssh_public_key_path}/${module.label.id}${var.public_key_extension}"
+  filename   = "${local.key_pair_filename}${var.public_key_extension}"
 }
 
 resource "local_file" "private_key_pem" {
-  count      = "${var.generate_ssh_key  == true ? 1 : 0}"
+  count      = "${var.generate_ssh_key == "true" ? 1 : 0}"
   depends_on = ["tls_private_key.default"]
   content    = "${tls_private_key.default.private_key_pem}"
-  filename   = "${var.ssh_public_key_path}/${module.label.id}${var.private_key_extension}"
+  filename   = "${local.key_pair_filename}${var.private_key_extension}"
 }
 
 resource "null_resource" "chmod" {
-  count      = "${var.generate_ssh_key  == true ? 1 : 0}"
+  count      = "${var.generate_ssh_key == "true" ? 1 : 0}"
   depends_on = ["local_file.private_key_pem"]
 
   provisioner "local-exec" {
-    command = "chmod 600 ${var.ssh_public_key_path}/${module.label.id}${var.private_key_extension}"
+    command = "chmod 600 ${local.key_pair_filename}${var.private_key_extension}"
   }
 }
