@@ -37,7 +37,7 @@ resource "local_file" "private_key_pem" {
   count      = "${var.generate_ssh_key  == true ? 1 : 0}"
   depends_on = ["tls_private_key.default"]
   content    = "${tls_private_key.default.private_key_pem}"
-  filename   = "${var.ssh_public_key_path}/${module.label.id}"
+  filename   = "${var.ssh_public_key_path}/${module.label.id}${var.private_key_extension}"
 }
 
 resource "null_resource" "chmod" {
@@ -45,6 +45,6 @@ resource "null_resource" "chmod" {
   depends_on = ["local_file.private_key_pem"]
 
   provisioner "local-exec" {
-    command = "chmod 600 ${var.ssh_public_key_path}/${module.label.id}"
+    command = "chmod 600 ${var.ssh_public_key_path}/${module.label.id}${var.private_key_extension}"
   }
 }
