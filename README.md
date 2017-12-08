@@ -32,6 +32,7 @@ module "default" {
 
 ## Outputs
 
-| Name                  | Description               |
-|:----------------------|:--------------------------|
-| `key_name`            | Name of SSH key           |
+| Name                  | Description                                   |
+|:----------------------|:----------------------------------------------|
+| `key_name`            | Name of SSH key                               |
+| `public_key`          | Contents of the generated public key          |
