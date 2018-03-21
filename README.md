@@ -14,6 +14,7 @@ module "default" {
   generate_ssh_key      = "true"
   private_key_extension = ".pem"
   public_key_extension  = ".pub"
+  operating_system      = "windows"
 }
 ```
 
@@ -28,6 +29,7 @@ module "default" {
 | `generate_ssh_key`           | `false`        | If set to `true`, new ssh key pair will be created      | No       |
 | `private_key_extension`      | ``             | Private key file extension, _e.g._ `.pem`               | No       |
 | `public_key_extension`       | `.pub`         | Public key file extension, _e.g._ `.pub`                | Yes      |
+| `operating_system`           | `unix_like`    | Name operating system (e.g. `windows` or `unix_like`)   | No       |
 
 
 ## Outputs

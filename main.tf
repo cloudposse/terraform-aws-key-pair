@@ -46,7 +46,7 @@ resource "local_file" "private_key_pem" {
 }
 
 resource "null_resource" "chmod" {
-  count      = "${var.generate_ssh_key == "true" ? 1 : 0}"
+  count      = "${var.generate_ssh_key == "true" && var.operating_system == "unix_like" ? 1 : 0}"
   depends_on = ["local_file.private_key_pem"]
 
   provisioner "local-exec" {

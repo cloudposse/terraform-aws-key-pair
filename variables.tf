@@ -39,3 +39,8 @@ variable "public_key_extension" {
   type    = "string"
   default = ".pub"
 }
+
+variable "operating_system" {
+  type    = "string"
+  default = "unix_like"
+}
