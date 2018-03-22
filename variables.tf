@@ -40,7 +40,6 @@ variable "public_key_extension" {
   default = ".pub"
 }
 
-variable "operating_system" {
-  type    = "string"
-  default = "unix_like"
+variable "chmod_command" {
+  default = "chmod 600 %v"
 }
