@@ -39,3 +39,7 @@ variable "public_key_extension" {
   type    = "string"
   default = ".pub"
 }
+
+variable "chmod_command" {
+  default = "chmod 600 %v"
+}
