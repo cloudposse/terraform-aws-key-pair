@@ -50,6 +50,6 @@ resource "null_resource" "chmod" {
   depends_on = ["local_file.private_key_pem"]
 
   provisioner "local-exec" {
-    command = "${format(var.chmod_command, local.private_key_filename)}" 
+    command = "${format(var.chmod_command, local.private_key_filename)}"
   }
 }
