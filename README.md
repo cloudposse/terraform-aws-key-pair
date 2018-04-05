@@ -29,7 +29,7 @@ module "default" {
 | `generate_ssh_key`           | `false`        | If set to `true`, new ssh key pair will be created       | No        |
 | `private_key_extension`      | ``             | Private key file extension, _e.g._ `.pem`                | No        |
 | `public_key_extension`       | `.pub`         | Public key file extension, _e.g._ `.pub`                 | Yes       |
-| `chmod_command`              | `chmod 600 %v` | Template of the command executed on the private key file.| Yes(Linux), No(Windows) |
+| `chmod_command`              | `chmod 600 %v` | Template of the command executed on the private key file | Yes(Linux), No(Windows) |
 
 
 ## Outputs
