@@ -10,7 +10,7 @@ variable "stage" {
 
 variable "name" {
   type        = "string"
-  description = "Application or solution name"
+  description = "Application or solution name (e.g. `app`)"
 }
 
 variable "delimiter" {
@@ -33,12 +33,12 @@ variable "tags" {
 
 variable "ssh_public_key_path" {
   type        = "string"
-  description = "Path to SSH public key directory"
+  description = "Path to SSH public key directory (e.g. `/secrets`)"
 }
 
 variable "generate_ssh_key" {
   default     = "false"
-  description = "Generate or import SSH key"
+  description = "If set to `true`, new SSH key pair will be created"
 }
 
 variable "ssh_key_algorithm" {
