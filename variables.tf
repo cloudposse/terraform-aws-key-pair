@@ -64,3 +64,14 @@ variable "chmod_command" {
   default     = "chmod 600 %v"
   description = "Template of the command executed on the private key file"
 }
+
+variable "region" {
+  type        = "string"
+  default     = "us-east-1"
+}
+
+variable only_generate_ssh_key  {
+  type        = "string"
+  default     = "false"
+  description = "If set to `true`, new SSH key pair will be created without importing the key pair into the AWS"
+}

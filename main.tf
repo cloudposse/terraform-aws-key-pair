@@ -1,3 +1,8 @@
+provider "aws" {
+  region      = "${var.region}"
+  version = "~> 1.8"
+}
+
 module "label" {
   source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.3.3"
   namespace  = "${var.namespace}"
@@ -14,7 +19,7 @@ locals {
 }
 
 resource "aws_key_pair" "imported" {
-  count      = "${var.generate_ssh_key == "false" ? 1 : 0}"
+  count      = "${var.generate_ssh_key == "false" && var.only_generate_ssh_key == "false" ? 1 : 0}"
   key_name   = "${module.label.id}"
   public_key = "${file("${local.public_key_filename}")}"
 }
@@ -25,7 +30,7 @@ resource "tls_private_key" "default" {
 }
 
 resource "aws_key_pair" "generated" {
-  count      = "${var.generate_ssh_key == "true" ? 1 : 0}"
+  count      = "${var.generate_ssh_key == "true" && var.only_generate_ssh_key == "false" ? 1 : 0}"
   depends_on = ["tls_private_key.default"]
   key_name   = "${module.label.id}"
   public_key = "${tls_private_key.default.public_key_openssh}"
