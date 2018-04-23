@@ -70,8 +70,8 @@ variable "region" {
   default     = "us-east-1"
 }
 
-variable only_generate_ssh_key  {
+variable import_key_pair  {
   type        = "string"
-  default     = "false"
-  description = "If set to `true`, new SSH key pair will be created without importing the key pair into the AWS"
+  default     = "true"
+  description = "If set to `false`, new SSH key pair will be created without importing the key pair into the AWS"
 }

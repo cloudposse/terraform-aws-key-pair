@@ -15,6 +15,8 @@ module "ssh_key_pair" {
   private_key_extension = ".pem"
   public_key_extension  = ".pub"
   chmod_command         = "chmod 600 %v"
+  region                = "us-east-1"
+  import_key_pair       = "true"
 }
 ```
 
@@ -31,7 +33,8 @@ module "ssh_key_pair" {
 | `private_key_extension`      | ``             | Private key file extension (_e.g._ `.pem`)               | No        |
 | `public_key_extension`       | `.pub`         | Public key file extension (_e.g._ `.pub`)                | No        |
 | `chmod_command`              | `chmod 600 %v` | Template of the command executed on the private key file | Yes(Linux), No(Windows) |
-
+| `region`                     | `us-east-1`    | Region for AWS provider                                  | No        |
+| `import_key_pair`            | `true`         | If set to `false`, new SSH key pair will be created without importing the key pair into the AWS | No        |
 
 ## Outputs
 
