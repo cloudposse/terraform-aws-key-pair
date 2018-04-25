@@ -1,5 +1,5 @@
 output "key_name" {
-  value = "${element(compact(concat(list(module.label.id), aws_key_pair.imported.*.key_name, aws_key_pair.generated.*.key_name)), 0)}"
+  value = "${module.label.id}"
 }
 
 output "public_key" {

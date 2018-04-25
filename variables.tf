@@ -36,11 +36,6 @@ variable "ssh_public_key_path" {
   description = "Path to SSH public key directory (e.g. `/secrets`)"
 }
 
-variable "generate_ssh_key" {
-  default     = "false"
-  description = "If set to `true`, new SSH key pair will be created"
-}
-
 variable "ssh_key_algorithm" {
   type        = "string"
   default     = "RSA"
@@ -63,15 +58,4 @@ variable "chmod_command" {
   type        = "string"
   default     = "chmod 600 %v"
   description = "Template of the command executed on the private key file"
-}
-
-variable "region" {
-  type        = "string"
-  default     = "us-east-1"
-}
-
-variable import_key_pair  {
-  type        = "string"
-  default     = "true"
-  description = "If set to `false`, new SSH key pair will be created without importing the key pair into the AWS"
 }
