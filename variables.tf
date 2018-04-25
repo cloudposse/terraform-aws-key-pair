@@ -36,11 +36,6 @@ variable "ssh_public_key_path" {
   description = "Path to SSH public key directory (e.g. `/secrets`)"
 }
 
-variable "generate_ssh_key" {
-  default     = "false"
-  description = "If set to `true`, new SSH key pair will be created"
-}
-
 variable "ssh_key_algorithm" {
   type        = "string"
   default     = "RSA"

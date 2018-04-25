@@ -1,6 +1,6 @@
 # terraform-aws-key-pair [![Build Status](https://travis-ci.org/cloudposse/terraform-aws-key-pair.svg?branch=master)](https://travis-ci.org/cloudposse/terraform-aws-key-pair)
 
-Terraform module for generating or importing an SSH public key file into AWS.
+Terraform module for generating an SSH public key file.
 
 ## Usage
 
@@ -11,7 +11,6 @@ module "ssh_key_pair" {
   stage                 = "prod"
   name                  = "app"
   ssh_public_key_path   = "/secrets"
-  generate_ssh_key      = "true"
   private_key_extension = ".pem"
   public_key_extension  = ".pub"
   chmod_command         = "chmod 600 %v"
@@ -27,11 +26,9 @@ module "ssh_key_pair" {
 | `stage`                      | ``             | Stage (e.g. `prod`, `dev`, `staging`)                    | Yes       |
 | `name`                       | ``             | Application or solution name  (e.g. `app`)               | Yes       |
 | `ssh_public_key_path`        | ``             | Path to SSH public key directory (e.g. `/secrets`)       | Yes       |
-| `generate_ssh_key`           | `false`        | If set to `true`, new SSH key pair will be created       | No        |
 | `private_key_extension`      | ``             | Private key file extension (_e.g._ `.pem`)               | No        |
 | `public_key_extension`       | `.pub`         | Public key file extension (_e.g._ `.pub`)                | No        |
 | `chmod_command`              | `chmod 600 %v` | Template of the command executed on the private key file | Yes(Linux), No(Windows) |
-
 
 ## Outputs
 
