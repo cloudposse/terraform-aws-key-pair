@@ -41,6 +41,11 @@ variable "generate_ssh_key" {
   description = "If set to `true`, new SSH key pair will be created"
 }
 
+variable "import_ssh_key" {
+  default     = "false"
+  description = "If set to `true`, existing SSH public key will be imported from `ssh_public_key_path` using the `null_resource` name format"
+}
+
 variable "ssh_key_algorithm" {
   type        = "string"
   default     = "RSA"
