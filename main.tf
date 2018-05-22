@@ -14,7 +14,7 @@ locals {
 }
 
 resource "null_resource" "ASSERTION_FAILED" {
-  count = "${var.generate_ssh_key == "true" && var.import_ssh_key == "true" ? 1 : 0}"
+  count                                                                     = "${var.generate_ssh_key == "true" && var.import_ssh_key == "true" ? 1 : 0}"
   "You cannot generate AND import a key, you can only do one or the other." = true
 }
 
