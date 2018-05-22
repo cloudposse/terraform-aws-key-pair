@@ -13,9 +13,9 @@ locals {
   private_key_filename = "${var.ssh_public_key_path}/${module.label.id}${var.private_key_extension}"
 }
 
-resource "null_resource" "import or generate key" {
-  count                                                                     = "${var.generate_ssh_key == "true" && var.import_ssh_key == "true" ? 1 : 0}"
-  "You cannot generate and import a key, you can only do one or the other." = true
+resource "null_resource" "ASSERTION_FAILED" {
+  count = "${var.generate_ssh_key == "true" && var.import_ssh_key == "true" ? 1 : 0}"
+  "You cannot generate AND import a key, you can only do one or the other." = true
 }
 
 resource "aws_key_pair" "imported" {
