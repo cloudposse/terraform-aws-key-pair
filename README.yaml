@@ -1,0 +1,77 @@
+---
+#
+# This is the canonical configuration for the `README.md`
+# Run `make readme` to rebuild the `README.md`
+#
+
+# Name of this project
+name: terraform-aws-key-pair
+
+# Logo for this project
+#logo: docs/logo.png
+
+# License of this project
+license: "APACHE2"
+
+# Canonical GitHub repo
+github_repo: cloudposse/terraform-aws-key-pair
+
+# Badges to display
+badges:
+  - name: "Build Status"
+    image: "https://travis-ci.org/cloudposse/terraform-aws-key-pair.svg?branch=master"
+    url: "https://travis-ci.org/cloudposse/terraform-aws-key-pair"
+  - name: "Latest Release"
+    image: "https://img.shields.io/github/release/cloudposse/terraform-aws-key-pair.svg"
+    url: "https://github.com/cloudposse/terraform-aws-key-pair/releases/latest"
+  - name: "Slack Community"
+    image: "https://slack.cloudposse.com/badge.svg"
+    url: "https://slack.cloudposse.com"
+
+related:
+  - name: "github-authorized-keys"
+    description: "Use GitHub teams to manage system user accounts and authorized_keys"
+    url: "https://github.com/cloudposse/github-authorized-keys"
+  - name: "sudosh"
+    description: "Shell wrapper to run a login shell with `sudo` as the current user for the purpose of audit logging"
+    url: "https://github.com/cloudposse/sudosh"
+  - name: "terraform-tls-ssh-key-pair"
+    description: "Terraform module for generating an SSH public/private key file."
+    url: "https://github.com/cloudposse/terraform-tls-ssh-key-pair"
+
+# Short description of this project
+description: |-
+  Terraform module for generating or importing an SSH public key file into AWS.
+
+# How to use this project
+usage: |-
+  ```hcl
+  module "ssh_key_pair" {
+    source                = "git::https://github.com/cloudposse/terraform-aws-key-pair.git?ref=master"
+    namespace             = "cp"
+    stage                 = "prod"
+    name                  = "app"
+    ssh_public_key_path   = "/secrets"
+    generate_ssh_key      = "true"
+    private_key_extension = ".pem"
+    public_key_extension  = ".pub"
+    chmod_command         = "chmod 600 %v"
+  }
+  ```
+
+include:
+  - "docs/targets.md"
+  - "docs/terraform.md"
+
+# Contributors to this project
+contributors:
+  - name: "Erik Osterman"
+    github: "osterman"
+  - name: "Andriy Knysh"
+    github: "aknysh"
+  - name: "Vladimir"
+    github: "SweetOps"
+  - name: "AMyachev"
+    github: "AMyachev"
+  - name: "Konstantin B"
+    github: "comeanother"
