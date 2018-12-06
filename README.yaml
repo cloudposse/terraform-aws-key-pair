@@ -7,6 +7,19 @@
 # Name of this project
 name: terraform-aws-key-pair
 
+# Tags of this project
+tags:
+  - aws
+  - terraform
+  - terraform-modules
+  - security
+  - ssh-keygen
+  - ssh-keys
+
+# Categories of this project
+categories:
+  - terraform-modules/security
+
 # Logo for this project
 #logo: docs/logo.png
 
