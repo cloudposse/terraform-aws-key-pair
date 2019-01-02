@@ -1,4 +1,3 @@
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -21,5 +20,7 @@
 | Name | Description |
 |------|-------------|
 | key_name | Name of SSH key |
+| private_key_filename | Private Key Filename |
 | public_key | Contents of the generated public key |
+| public_key_filename | Public Key Filename |
 

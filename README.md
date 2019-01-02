@@ -71,7 +71,6 @@ Available targets:
   lint                                Lint terraform code
 
 ```
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -94,7 +93,9 @@ Available targets:
 | Name | Description |
 |------|-------------|
 | key_name | Name of SSH key |
+| private_key_filename | Private Key Filename |
 | public_key | Contents of the generated public key |
+| public_key_filename | Public Key Filename |
 
 
 
@@ -178,7 +179,7 @@ In general, PRs are welcome. We follow the typical "fork-and-pull" Git workflow.
 
 ## Copyright
 
-Copyright © 2017-2018 [Cloud Posse, LLC](https://cpco.io/copyright)
+Copyright © 2017-2019 [Cloud Posse, LLC](https://cpco.io/copyright)
 
 
 
