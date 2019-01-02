@@ -9,8 +9,8 @@ module "label" {
 }
 
 locals {
-  public_key_filename  = "${var.ssh_public_key_path}/${module.label.id}${var.public_key_extension}"
-  private_key_filename = "${var.ssh_public_key_path}/${module.label.id}${var.private_key_extension}"
+  public_key_filename  = "${var.generate_ssh_key == "true" ? format("%s/%s%s", var.ssh_public_key_path, module.label.id, var.public_key_extension) : ""}"
+  private_key_filename = "${var.generate_ssh_key == "true" ? format("%s/%s%s", var.ssh_public_key_path, module.label.id, var.private_key_extension) : ""}"
 }
 
 resource "aws_key_pair" "imported" {
