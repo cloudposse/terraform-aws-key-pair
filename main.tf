@@ -49,6 +49,10 @@ resource "null_resource" "chmod" {
   count      = "${var.generate_ssh_key == "true" && var.chmod_command != "" ? 1 : 0}"
   depends_on = ["local_file.private_key_pem"]
 
+  triggers = {
+    local_file_private_key_pem = "local_file.private_key_pem"
+  }
+
   provisioner "local-exec" {
     command = "${format(var.chmod_command, local.private_key_filename)}"
   }
