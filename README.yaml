@@ -31,9 +31,9 @@ github_repo: cloudposse/terraform-aws-key-pair
 
 # Badges to display
 badges:
-  - name: "Build Status"
-    image: "https://travis-ci.org/cloudposse/terraform-aws-key-pair.svg?branch=master"
-    url: "https://travis-ci.org/cloudposse/terraform-aws-key-pair"
+  - name: "Codefresh Build Status"
+    image: "https://g.codefresh.io/api/badges/pipeline/cloudposse/terraform-modules%2Fterraform-aws-key-pair?type=cf-1"
+    url: "https://g.codefresh.io/public/accounts/cloudposse/pipelines/5d1bbbe8c765737a2ad1e5a8"
   - name: "Latest Release"
     image: "https://img.shields.io/github/release/cloudposse/terraform-aws-key-pair.svg"
     url: "https://github.com/cloudposse/terraform-aws-key-pair/releases/latest"
@@ -61,7 +61,7 @@ usage: |-
   ```hcl
   module "ssh_key_pair" {
     source                = "git::https://github.com/cloudposse/terraform-aws-key-pair.git?ref=master"
-    namespace             = "cp"
+    namespace             = "eg"
     stage                 = "prod"
     name                  = "app"
     ssh_public_key_path   = "/secrets"
