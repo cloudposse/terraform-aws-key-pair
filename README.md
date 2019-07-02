@@ -3,7 +3,7 @@
 
 [![Cloud Posse][logo]](https://cpco.io/homepage)
 
-# terraform-aws-key-pair [![Build Status](https://travis-ci.org/cloudposse/terraform-aws-key-pair.svg?branch=master)](https://travis-ci.org/cloudposse/terraform-aws-key-pair) [![Latest Release](https://img.shields.io/github/release/cloudposse/terraform-aws-key-pair.svg)](https://github.com/cloudposse/terraform-aws-key-pair/releases/latest) [![Slack Community](https://slack.cloudposse.com/badge.svg)](https://slack.cloudposse.com)
+# terraform-aws-key-pair [![Codefresh Build Status](https://g.codefresh.io/api/badges/pipeline/cloudposse/terraform-modules%2Fterraform-aws-key-pair?type=cf-1)](https://g.codefresh.io/public/accounts/cloudposse/pipelines/5d1bbbe8c765737a2ad1e5a8) [![Latest Release](https://img.shields.io/github/release/cloudposse/terraform-aws-key-pair.svg)](https://github.com/cloudposse/terraform-aws-key-pair/releases/latest) [![Slack Community](https://slack.cloudposse.com/badge.svg)](https://slack.cloudposse.com)
 
 
 Terraform module for generating or importing an SSH public key file into AWS.
@@ -42,10 +42,15 @@ We literally have [*hundreds of terraform modules*][terraform_modules] that are 
 
 ## Usage
 
+
+**IMPORTANT:** The `master` branch is used in `source` just as an example. In your code, do not pin to `master` because there may be breaking changes between releases.
+Instead pin to the release tag (e.g. `?ref=tags/x.y.z`) of one of our [latest releases](https://github.com/cloudposse/terraform-aws-key-pair/releases).
+
+
 ```hcl
 module "ssh_key_pair" {
   source                = "git::https://github.com/cloudposse/terraform-aws-key-pair.git?ref=master"
-  namespace             = "cp"
+  namespace             = "eg"
   stage                 = "prod"
   name                  = "app"
   ssh_public_key_path   = "/secrets"
@@ -75,18 +80,18 @@ Available targets:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| attributes | Additional attributes (e.g. `1`) | list | `<list>` | no |
+| attributes | Additional attributes (e.g. `1`) | list(string) | `<list>` | no |
 | chmod_command | Template of the command executed on the private key file | string | `chmod 600 %v` | no |
 | delimiter | Delimiter to be used between `namespace`, `stage`, `name` and `attributes` | string | `-` | no |
-| generate_ssh_key | If set to `true`, new SSH key pair will be created | string | `false` | no |
+| generate_ssh_key | If set to `true`, new SSH key pair will be created | bool | `false` | no |
 | name | Application or solution name (e.g. `app`) | string | - | yes |
-| namespace | Namespace (e.g. `cp` or `cloudposse`) | string | - | yes |
+| namespace | Namespace (e.g. `eg` or `cp`) | string | `` | no |
 | private_key_extension | Private key extension | string | `` | no |
 | public_key_extension | Public key extension | string | `.pub` | no |
 | ssh_key_algorithm | SSH key algorithm | string | `RSA` | no |
 | ssh_public_key_path | Path to SSH public key directory (e.g. `/secrets`) | string | - | yes |
-| stage | Stage (e.g. `prod`, `dev`, `staging`) | string | - | yes |
-| tags | Additional tags (e.g. map(`BusinessUnit`,`XYZ`) | map | `<map>` | no |
+| stage | Stage (e.g. `prod`, `dev`, `staging`) | string | `` | no |
+| tags | Additional tags (e.g. map(`BusinessUnit`,`XYZ`) | map(string) | `<map>` | no |
 
 ## Outputs
 
@@ -94,7 +99,7 @@ Available targets:
 |------|-------------|
 | key_name | Name of SSH key |
 | private_key_filename | Private Key Filename |
-| public_key | Contents of the generated public key |
+| public_key | Content of the generated public key |
 | public_key_filename | Public Key Filename |
 
 
