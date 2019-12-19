@@ -96,7 +96,6 @@ module "ssh_key_pair" {
   generate_ssh_key      = "true"
   private_key_extension = ".pem"
   public_key_extension  = ".pub"
-  chmod_command         = "chmod 600 %v"
 }
 ```
 
@@ -120,7 +119,6 @@ Available targets:
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | attributes | Additional attributes (e.g. `1`) | list(string) | `<list>` | no |
-| chmod_command | Template of the command executed on the private key file | string | `chmod 600 %v` | no |
 | delimiter | Delimiter to be used between `namespace`, `stage`, `name` and `attributes` | string | `-` | no |
 | generate_ssh_key | If set to `true`, new SSH key pair will be created | bool | `false` | no |
 | name | Application or solution name (e.g. `app`) | string | - | yes |

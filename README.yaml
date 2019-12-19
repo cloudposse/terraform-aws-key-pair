@@ -68,7 +68,6 @@ usage: |-
     generate_ssh_key      = "true"
     private_key_extension = ".pem"
     public_key_extension  = ".pub"
-    chmod_command         = "chmod 600 %v"
   }
   ```
 
