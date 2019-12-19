@@ -50,21 +50,9 @@ resource "local_file" "public_key_openssh" {
 }
 
 resource "local_file" "private_key_pem" {
-  count      = var.generate_ssh_key == true ? 1 : 0
-  depends_on = [tls_private_key.default]
-  content    = tls_private_key.default[0].private_key_pem
-  filename   = local.private_key_filename
-}
-
-resource "null_resource" "chmod" {
-  count      = var.generate_ssh_key == true && var.chmod_command != "" ? 1 : 0
-  depends_on = [local_file.private_key_pem]
-
-  triggers = {
-    local_file_private_key_pem = filesha256(local.private_key_filename)
-  }
-
-  provisioner "local-exec" {
-    command = format(var.chmod_command, local.private_key_filename)
-  }
+  count           = var.generate_ssh_key == true ? 1 : 0
+  depends_on      = [tls_private_key.default]
+  content         = tls_private_key.default[0].private_key_pem
+  filename        = local.private_key_filename
+  file_permission = "0600"
 }
