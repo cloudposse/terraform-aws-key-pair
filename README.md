@@ -283,8 +283,8 @@ Check out [our other projects][github], [follow us on twitter][twitter], [apply 
 
 ### Contributors
 
-|  [![Erik Osterman][osterman_avatar]][osterman_homepage]<br/>[Erik Osterman][osterman_homepage] | [![Andriy Knysh][aknysh_avatar]][aknysh_homepage]<br/>[Andriy Knysh][aknysh_homepage] | [![Vladimir][SweetOps_avatar]][SweetOps_homepage]<br/>[Vladimir][SweetOps_homepage] | [![AMyachev][AMyachev_avatar]][AMyachev_homepage]<br/>[AMyachev][AMyachev_homepage] | [![Konstantin B][comeanother_avatar]][comeanother_homepage]<br/>[Konstantin B][comeanother_homepage] |
-|---|---|---|---|---|
+|  [![Erik Osterman][osterman_avatar]][osterman_homepage]<br/>[Erik Osterman][osterman_homepage] | [![Andriy Knysh][aknysh_avatar]][aknysh_homepage]<br/>[Andriy Knysh][aknysh_homepage] | [![Vladimir][SweetOps_avatar]][SweetOps_homepage]<br/>[Vladimir][SweetOps_homepage] | [![AMyachev][AMyachev_avatar]][AMyachev_homepage]<br/>[AMyachev][AMyachev_homepage] | [![Konstantin B][comeanother_avatar]][comeanother_homepage]<br/>[Konstantin B][comeanother_homepage] | [![Chris Weyl][rsrchboy_avatar]][rsrchboy_homepage]<br/>[Chris Weyl][rsrchboy_homepage] |
+|---|---|---|---|---|---|
 
   [osterman_homepage]: https://github.com/osterman
   [osterman_avatar]: https://img.cloudposse.com/150x150/https://github.com/osterman.png
@@ -296,6 +296,8 @@ Check out [our other projects][github], [follow us on twitter][twitter], [apply 
   [AMyachev_avatar]: https://img.cloudposse.com/150x150/https://github.com/AMyachev.png
   [comeanother_homepage]: https://github.com/comeanother
   [comeanother_avatar]: https://img.cloudposse.com/150x150/https://github.com/comeanother.png
+  [rsrchboy_homepage]: https://github.com/rsrchboy
+  [rsrchboy_avatar]: https://img.cloudposse.com/150x150/https://github.com/rsrchboy.png
 
 [![README Footer][readme_footer_img]][readme_footer_link]
 [![Beacon][beacon]][website]
