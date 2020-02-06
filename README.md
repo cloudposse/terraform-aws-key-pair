@@ -138,6 +138,7 @@ Available targets:
 | Name | Description |
 |------|-------------|
 | key_name | Name of SSH key |
+| private_key | Content of the generated private key |
 | private_key_filename | Private Key Filename |
 | public_key | Content of the generated public key |
 | public_key_filename | Public Key Filename |
