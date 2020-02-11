@@ -12,6 +12,12 @@ output "public_key" {
   description = "Content of the generated public key"
 }
 
+output "private_key" {
+  sensitive   = true
+  description = "Content of the generated private key"
+  value       = join("", tls_private_key.default.*.private_key_pem)
+}
+
 output "public_key_filename" {
   description = "Public Key Filename"
   value       = local.public_key_filename
