@@ -1,11 +1,12 @@
 module "label" {
-  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.14.1"
-  namespace  = var.namespace
-  stage      = var.stage
-  name       = var.name
-  attributes = var.attributes
-  delimiter  = var.delimiter
-  tags       = var.tags
+  source      = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.16.0"
+  namespace   = var.namespace
+  stage       = var.stage
+  environment = var.environment
+  name        = var.name
+  attributes  = var.attributes
+  delimiter   = var.delimiter
+  tags        = var.tags
 }
 
 locals {
@@ -52,7 +53,7 @@ resource "local_file" "public_key_openssh" {
 resource "local_file" "private_key_pem" {
   count           = var.generate_ssh_key == true ? 1 : 0
   depends_on      = [tls_private_key.default]
-  content         = tls_private_key.default[0].private_key_pem
+  sensitive_content = tls_private_key.default[0].private_key_pem
   filename        = local.private_key_filename
   file_permission = "0600"
 }
