@@ -68,9 +68,3 @@ variable "public_key_extension" {
   default     = ".pub"
   description = "Public key extension"
 }
-
-variable "chmod_command" {
-  type        = string
-  default     = "chmod 600 %v"
-  description = "Template of the command executed on the private key file"
-}

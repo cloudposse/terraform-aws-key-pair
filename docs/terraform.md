@@ -3,7 +3,6 @@
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | attributes | Additional attributes (e.g. `1`) | list(string) | `<list>` | no |
-| chmod_command | Template of the command executed on the private key file | string | `chmod 600 %v` | no |
 | delimiter | Delimiter to be used between `namespace`, `environment`, `stage`, `name` and `attributes` | string | `-` | no |
 | environment | Environment, e.g. 'prod', 'staging', 'dev', 'pre-prod', 'UAT' | string | `` | no |
 | generate_ssh_key | If set to `true`, new SSH key pair will be created | bool | `false` | no |
