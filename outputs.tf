@@ -20,10 +20,14 @@ output "private_key" {
 
 output "public_key_filename" {
   description = "Public Key Filename"
-  value       = local.public_key_filename
+
+  # Prevent releasing filename to downstream consumers until file exists (aka not during plan):
+  value = length(join("", tls_private_key.default.*.public_key_openssh)) > 0 ? local.public_key_filename : local.public_key_filename
 }
 
 output "private_key_filename" {
   description = "Private Key Filename"
-  value       = local.private_key_filename
+
+  # Prevent releasing filename to downstream consumers until file exists (aka not during plan):
+  value = length(join("", tls_private_key.default.*.public_key_openssh)) > 0 ? local.private_key_filename : local.private_key_filename
 }
