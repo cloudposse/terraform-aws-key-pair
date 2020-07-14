@@ -8,7 +8,7 @@ output "key_name" {
 }
 
 output "public_key" {
-  value       = join("", tls_private_key.default.*.public_key_openssh)
+  value       = coalesce(join("", aws_key_pair.imported.*.public_key), join("", tls_private_key.default.*.public_key_openssh))
   description = "Content of the generated public key"
 }
 
