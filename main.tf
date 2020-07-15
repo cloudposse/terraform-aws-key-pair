@@ -11,10 +11,9 @@ module "label" {
 
 locals {
   public_key_filename = format(
-    "%s/%s%s",
+    "%s/%s",
     var.ssh_public_key_path,
-    module.label.id,
-    var.public_key_extension
+    coalesce(var.ssh_public_key_file, join("", [module.label.id, var.public_key_extension]))
   )
 
   private_key_filename = format(

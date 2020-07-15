@@ -42,7 +42,8 @@ init: $(BASE)/vendor
 .PHONY : test
 ## Run tests
 test: init
-	cd $(BASE) && go test -v -timeout 30m -run TestExamplesComplete
+	cd $(BASE) && go test -v -timeout 30m -run TestExamplesComplete &&\
+		go test -v -timeout 30m -run TestImportKey
 
 .PHONY : clean
 ## Clean up files
