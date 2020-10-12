@@ -28,6 +28,7 @@ resource "aws_key_pair" "imported" {
   count      = var.generate_ssh_key == false ? 1 : 0
   key_name   = module.label.id
   public_key = file(local.public_key_filename)
+  tags = module.label.tags
 }
 
 resource "tls_private_key" "default" {
@@ -40,6 +41,7 @@ resource "aws_key_pair" "generated" {
   depends_on = [tls_private_key.default]
   key_name   = module.label.id
   public_key = tls_private_key.default[0].public_key_openssh
+  tags = module.label.tags
 }
 
 resource "local_file" "public_key_openssh" {
