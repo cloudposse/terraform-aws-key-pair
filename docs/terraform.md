@@ -1,3 +1,4 @@
+<!-- markdownlint-disable -->
 ## Requirements
 
 | Name | Version |
@@ -44,3 +45,4 @@
 | public\_key | Content of the generated public key |
 | public\_key\_filename | Public Key Filename |
 
+<!-- markdownlint-restore -->

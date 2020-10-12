@@ -96,6 +96,7 @@ Available targets:
 
 ```
 <!-- markdownlint-restore -->
+<!-- markdownlint-disable -->
 ## Requirements
 
 | Name | Version |
@@ -142,6 +143,7 @@ Available targets:
 | public\_key | Content of the generated public key |
 | public\_key\_filename | Public Key Filename |
 
+<!-- markdownlint-restore -->
 
 
 
