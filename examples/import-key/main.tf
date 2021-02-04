@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 module "aws_key_pair" {
-  source  = "../../"
+  source = "../../"
 
   ssh_public_key_path = var.ssh_public_key_path
   ssh_public_key_file = var.ssh_public_key_file
