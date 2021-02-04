@@ -57,7 +57,9 @@ description: |-
 usage: |-
   ```hcl
   module "ssh_key_pair" {
-    source                = "git::https://github.com/cloudposse/terraform-aws-key-pair.git?ref=master"
+    source = "cloudposse/key-pair/aws"
+    # Cloud Posse recommends pinning every module to a specific version
+    # version     = "x.x.x"
     namespace             = "eg"
     stage                 = "prod"
     name                  = "app"
