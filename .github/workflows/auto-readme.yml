@@ -21,7 +21,7 @@ jobs:
         make readme/build
 
     - name: Create Pull Request
-      uses: cloudposse/actions/github/create-pull-request@0.20.0
+      uses: cloudposse/actions/github/create-pull-request@0.28.0
       with:
         token: ${{ secrets.PUBLIC_REPO_ACCESS_TOKEN }}
         commit-message: Update README.md and docs
