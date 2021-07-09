@@ -12,19 +12,8 @@ import (
 )
 
 // Test the Terraform module in examples/complete using Terratest.
-func TestImportKey(t *testing.T) {
+func TestExamplesImportKey(t *testing.T) {
 	t.Parallel()
-
-	terraformOptions := &terraform.Options{
-		// The path to where our Terraform code is located
-		TerraformDir: "../../examples/import-key",
-		Upgrade:      true,
-		// Variables to pass to our Terraform code using -var-file options
-		VarFiles: []string{"fixtures.us-east-2.tfvars"},
-	}
-
-	// At the end of the test, run `terraform destroy` to clean up any resources that were created
-	defer terraform.Destroy(t, terraformOptions)
 
 	// Create dummy SSH key and write to file
 	keyPair, err := ssh.GenerateRSAKeyPairE(t, 2048)
@@ -37,13 +26,24 @@ func TestImportKey(t *testing.T) {
 		require.NoError(t, err)
 	}
 
+	terraformOptions := &terraform.Options{
+		// The path to where our Terraform code is located
+		TerraformDir: "../../examples/import-key",
+		Upgrade:      true,
+		// Variables to pass to our Terraform code using -var-file options
+		VarFiles: []string{"fixtures.us-east-2.tfvars"},
+	}
+
+	// At the end of the test, run `terraform destroy` to clean up any resources that were created
+	defer terraform.Destroy(t, terraformOptions)
+
 	// This will run `terraform init` and `terraform apply` and fail the test if there are any errors
 	terraform.InitAndApply(t, terraformOptions)
 
 	// Verify `key_name` output is as expected
 	keyName := terraform.Output(t, terraformOptions, "key_name")
 
-	expectedKeyName := "eg-test-aws-key-pair"
+	expectedKeyName := "eg-test-aws-key-pair-import"
 	// Verify we're getting back the outputs we expect
 	assert.Equal(t, expectedKeyName, keyName)
 

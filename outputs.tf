@@ -1,14 +1,10 @@
 output "key_name" {
-  value = compact(concat(
-    aws_key_pair.imported.*.key_name,
-    aws_key_pair.generated.*.key_name
-  ))[0]
-
+  value       = try(aws_key_pair.imported[0].key_name, aws_key_pair.generated[0].key_name, "")
   description = "Name of SSH key"
 }
 
 output "public_key" {
-  value       = coalesce(join("", aws_key_pair.imported.*.public_key), join("", tls_private_key.default.*.public_key_openssh))
+  value       = try(aws_key_pair.imported[0].public_key, tls_private_key.default[0].public_key_openssh, "")
   description = "Content of the generated public key"
 }
 

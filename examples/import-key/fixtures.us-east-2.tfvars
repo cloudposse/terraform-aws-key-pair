@@ -4,7 +4,7 @@ namespace = "eg"
 
 stage = "test"
 
-name = "aws-key-pair"
+name = "aws-key-pair-import"
 
 ssh_public_key_path = "/tmp/secrets"
 
