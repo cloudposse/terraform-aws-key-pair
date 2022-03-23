@@ -4,7 +4,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = ">= 2.0"
+      version = ">= 3.0"
     }
     tls = {
       source  = "hashicorp/tls"
@@ -12,7 +12,7 @@ terraform {
     }
     local = {
       source  = "hashicorp/local"
-      version = ">= 1.3"
+      version = ">= 2.2.1"
     }
     null = {
       source  = "hashicorp/null"
