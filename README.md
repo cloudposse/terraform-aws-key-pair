@@ -132,7 +132,7 @@ Available targets:
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.0 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 3.0 |
-| <a name="requirement_local"></a> [local](#requirement\_local) | >= 1.3 |
+| <a name="requirement_local"></a> [local](#requirement\_local) | >= 2.2.1 |
 | <a name="requirement_tls"></a> [tls](#requirement\_tls) | >= 2.0 |
 
 ## Providers
@@ -140,7 +140,7 @@ Available targets:
 | Name | Version |
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | >= 3.0 |
-| <a name="provider_local"></a> [local](#provider\_local) | >= 1.3 |
+| <a name="provider_local"></a> [local](#provider\_local) | >= 2.2.1 |
 | <a name="provider_tls"></a> [tls](#provider\_tls) | >= 2.0 |
 
 ## Modules
@@ -155,8 +155,8 @@ Available targets:
 |------|------|
 | [aws_key_pair.generated](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/key_pair) | resource |
 | [aws_key_pair.imported](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/key_pair) | resource |
-| [local_file.private_key_pem](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
 | [local_file.public_key_openssh](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
+| [local_sensitive_file.private_key_pem](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/sensitive_file) | resource |
 | [tls_private_key.default](https://registry.terraform.io/providers/hashicorp/tls/latest/docs/resources/private_key) | resource |
 
 ## Inputs
@@ -288,7 +288,7 @@ In general, PRs are welcome. We follow the typical "fork-and-pull" Git workflow.
 
 ## Copyright
 
-Copyright © 2017-2021 [Cloud Posse, LLC](https://cpco.io/copyright)
+Copyright © 2017-2022 [Cloud Posse, LLC](https://cpco.io/copyright)
 
 
 
