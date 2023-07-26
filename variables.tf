@@ -36,7 +36,7 @@ variable "public_key_extension" {
 variable "ssm_parameter_enabled" {
   type        = bool
   default     = false
-  description = "Whether an SSM parameter store value is created to store the key's private key pem."  
+  description = "Whether an SSM parameter store value is created to store the key's private key pem."
 }
 
 variable "ssm_parameter_path_prefix" {
