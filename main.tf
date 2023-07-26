@@ -51,7 +51,7 @@ resource "local_sensitive_file" "private_key_pem" {
 
 resource "aws_ssm_parameter" "private_key" {
   count = local.enabled && var.ssm_parameter_enabled == true ? 1 : 0
-  name  = format("%s/%s", var.ssm_parameter_path_prefix, module.this.id)
+  name  = format("%s%s", var.ssm_parameter_path_prefix, module.this.id)
   type  = "SecureString"
   value = tls_private_key.default.private_key_pem
   tags  = module.this.tags
