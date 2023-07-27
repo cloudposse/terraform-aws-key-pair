@@ -48,3 +48,11 @@ resource "local_sensitive_file" "private_key_pem" {
   filename        = local.private_key_filename
   file_permission = "0600"
 }
+
+resource "aws_ssm_parameter" "private_key" {
+  count = local.enabled && var.generate_ssh_key && var.ssm_parameter_enabled == true ? 1 : 0
+  name  = format("%s%s", var.ssm_parameter_path_prefix, module.this.id)
+  type  = "SecureString"
+  value = tls_private_key.default[0].private_key_pem
+  tags  = module.this.tags
+}

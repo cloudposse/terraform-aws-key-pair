@@ -32,3 +32,15 @@ variable "public_key_extension" {
   default     = ".pub"
   description = "Public key extension"
 }
+
+variable "ssm_parameter_enabled" {
+  type        = bool
+  default     = false
+  description = "Whether an SSM parameter store value is created to store the key's private key pem."
+}
+
+variable "ssm_parameter_path_prefix" {
+  type        = string
+  default     = "/ec2/key-pairs/"
+  description = "The path prefix for the created SSM parameter e.g. '/ec2/key-pairs/acme-ue1-dev-bastion'. `ssm_parameter_enabled` must be set to `true` for this to take affect."
+}
