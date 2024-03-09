@@ -1,4 +1,3 @@
----
 #
 # This is the canonical configuration for the `README.md`
 # Run `make readme` to rebuild the `README.md`
@@ -31,13 +30,17 @@ github_repo: cloudposse/terraform-aws-key-pair
 
 # Badges to display
 badges:
-  - name: "Latest Release"
-    image: "https://img.shields.io/github/release/cloudposse/terraform-aws-key-pair.svg"
-    url: "https://github.com/cloudposse/terraform-aws-key-pair/releases/latest"
-  - name: "Slack Community"
-    image: "https://slack.cloudposse.com/badge.svg"
-    url: "https://slack.cloudposse.com"
+  - name: Latest Release
+    image: https://img.shields.io/github/release/cloudposse/terraform-aws-key-pair.svg?style=for-the-badge
+    url: https://github.com/cloudposse/terraform-aws-key-pair/releases/latest
+  - name: Last Updated
+    image: https://img.shields.io/github/last-commit/cloudposse/terraform-aws-key-pair.svg?style=for-the-badge
+    url: https://github.com/cloudposse/terraform-aws-key-pair/commits
+  - name: Slack Community
+    image: https://slack.cloudposse.com/for-the-badge.svg
+    url: https://slack.cloudposse.com
 
+# List any related terraform modules that this module may be used with or that this module depends on.
 related:
   - name: "github-authorized-keys"
     description: "Use GitHub teams to manage system user accounts and authorized_keys"
@@ -75,16 +78,4 @@ include:
   - "docs/terraform.md"
 
 # Contributors to this project
-contributors:
-  - name: "Erik Osterman"
-    github: "osterman"
-  - name: "Andriy Knysh"
-    github: "aknysh"
-  - name: "Vladimir"
-    github: "SweetOps"
-  - name: "AMyachev"
-    github: "AMyachev"
-  - name: "Konstantin B"
-    github: "comeanother"
-  - name: "Chris Weyl"
-    github: "rsrchboy"
+contributors: []
