@@ -1,0 +1,7 @@
+# Upstream changes from _extends are only recognized when modifications are made to this file in the default branch.
+_extends: .github
+repository:
+  name: terraform-aws-key-pair
+  description: Terraform Module to Automatically Generate SSH Key Pairs (Public/Private Keys)
+  homepage: https://cloudposse.com/accelerate
+  topics: terraform, terraform-modules, aws, ssh-keygen, ssh-keys, hcl2
