@@ -5,8 +5,8 @@ provider "aws" {
 module "aws_key_pair" {
   source = "../../"
 
-  generate_ssh_key = var.generate_ssh_key
-  write_ssh_key    = var.write_ssh_key
+  ssh_public_key_path = var.ssh_public_key_path
+  generate_ssh_key    = var.generate_ssh_key
 
   context = module.this.context
 }

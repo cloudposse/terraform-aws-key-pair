@@ -1,5 +1,6 @@
 variable "ssh_public_key_path" {
   type        = string
+  default     = null
   description = "Path to SSH public key directory (e.g. `/secrets`)"
 }
 
@@ -43,4 +44,10 @@ variable "ssm_parameter_path_prefix" {
   type        = string
   default     = "/ec2/key-pairs/"
   description = "The path prefix for the created SSM parameter e.g. '/ec2/key-pairs/acme-ue1-dev-bastion'. `ssm_parameter_enabled` must be set to `true` for this to take affect."
+}
+
+variable "write_ssh_key" {
+  type        = string
+  default     = true
+  description = "Whether to write generated keypair to disk at `ssh_public_key_path`."
 }

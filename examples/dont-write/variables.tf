@@ -12,8 +12,3 @@ variable "generate_ssh_key" {
   type        = bool
   description = "If set to `true`, new SSH key pair will be created"
 }
-
-variable "write_ssh_key" {
-  type        = bool
-  description = "If set to `true`, the SSH key pair will be written to disk"
-}
