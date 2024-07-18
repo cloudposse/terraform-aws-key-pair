@@ -5,3 +5,4 @@ repository:
   description: Terraform Module to Automatically Generate SSH Key Pairs (Public/Private Keys)
   homepage: https://cloudposse.com/accelerate
   topics: terraform, terraform-modules, aws, ssh-keygen, ssh-keys, hcl2
+
