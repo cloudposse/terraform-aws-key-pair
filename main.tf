@@ -1,17 +1,17 @@
 locals {
   enabled = module.this.enabled
-  public_key_filename = format(
+  public_key_filename = (var.generate_ssh_key == false || var.write_ssh_key == true) ? format(
     "%s/%s",
     var.ssh_public_key_path,
     coalesce(var.ssh_public_key_file, join("", [module.this.id, var.public_key_extension]))
-  )
+  ) : null
 
-  private_key_filename = format(
+  private_key_filename = (var.generate_ssh_key == false || var.write_ssh_key == true) ? format(
     "%s/%s%s",
     var.ssh_public_key_path,
     module.this.id,
     var.private_key_extension
-  )
+  ) : null
 }
 
 resource "aws_key_pair" "imported" {
@@ -35,14 +35,14 @@ resource "aws_key_pair" "generated" {
 }
 
 resource "local_file" "public_key_openssh" {
-  count      = local.enabled && var.generate_ssh_key == true ? 1 : 0
+  count      = local.enabled && var.generate_ssh_key == true && var.save_ssh_key ? 1 : 0
   depends_on = [tls_private_key.default]
   content    = tls_private_key.default[0].public_key_openssh
   filename   = local.public_key_filename
 }
 
 resource "local_sensitive_file" "private_key_pem" {
-  count           = local.enabled && var.generate_ssh_key == true ? 1 : 0
+  count           = local.enabled && var.generate_ssh_key == true && var.save_ssh_key ? 1 : 0
   depends_on      = [tls_private_key.default]
   content         = tls_private_key.default[0].private_key_pem
   filename        = local.private_key_filename
