@@ -3,7 +3,7 @@
 <!-- markdownlint-disable -->
 <a href="https://cpco.io/homepage"><img src="https://github.com/cloudposse/terraform-aws-key-pair/blob/main/.github/banner.png?raw=true" alt="Project Banner"/></a><br/>
     <p align="right">
-<a href="https://github.com/cloudposse/terraform-aws-key-pair/releases/latest"><img src="https://img.shields.io/github/release/cloudposse/terraform-aws-key-pair.svg?style=for-the-badge" alt="Latest Release"/></a><a href="https://github.com/cloudposse/terraform-aws-key-pair/commits"><img src="https://img.shields.io/github/last-commit/cloudposse/terraform-aws-key-pair.svg?style=for-the-badge" alt="Last Updated"/></a><a href="https://slack.cloudposse.com"><img src="https://slack.cloudposse.com/for-the-badge.svg" alt="Slack Community"/></a></p>
+<a href="https://github.com/cloudposse/terraform-aws-key-pair/releases/latest"><img src="https://img.shields.io/github/release/cloudposse/terraform-aws-key-pair.svg?style=for-the-badge" alt="Latest Release"/></a><a href="https://github.com/cloudposse/terraform-aws-key-pair/commits"><img src="https://img.shields.io/github/last-commit/cloudposse/terraform-aws-key-pair.svg?style=for-the-badge" alt="Last Updated"/></a><a href="https://cloudposse.com/slack"><img src="https://slack.cloudposse.com/for-the-badge.svg" alt="Slack Community"/></a></p>
 <!-- markdownlint-restore -->
 
 <!--
@@ -75,18 +75,6 @@ module "ssh_key_pair" {
 
 
 
-<!-- markdownlint-disable -->
-## Makefile Targets
-```text
-Available targets:
-
-  help                                Help screen
-  help/all                            Display help for all targets
-  help/short                          This help short screen
-  lint                                Lint terraform code
-
-```
-<!-- markdownlint-restore -->
 <!-- markdownlint-disable -->
 ## Requirements
 
@@ -164,6 +152,11 @@ Available targets:
 | <a name="output_public_key"></a> [public\_key](#output\_public\_key) | Content of the generated public key |
 | <a name="output_public_key_filename"></a> [public\_key\_filename](#output\_public\_key\_filename) | Public Key Filename |
 <!-- markdownlint-restore -->
+
+
+
+
+
 
 
 ## Related Projects
